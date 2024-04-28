@@ -1,11 +1,22 @@
-// 1.1 Exercise.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// 1.10 Exercise.cpp : This file contains the 'main' function. Program execution begins and ends there.
+
+/*
+* In addition to the ++ operator that adds 1 to its operands,
+* there is a decrement operator (--) that subtracts 1.
+* Use the decrement operator to write a while 
+* that prints the numbers from ten down to zero. 
+*/
 
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!" << std::endl;
+int main() {
+	int counter = 10;
+	while (counter >= 0) {
+		std::cout << counter << std::endl;
+		--counter;
+	}
+
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
