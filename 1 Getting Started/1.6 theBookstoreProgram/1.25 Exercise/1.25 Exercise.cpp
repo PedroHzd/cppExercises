@@ -1,11 +1,35 @@
 // 1.25 Exercise.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
+/*
+* Using the Sales_item.h header from the Web site,
+* compile and execute the bookstore presented in this section. 
+*/
 
 #include <iostream>
+#include "Sales_item.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+	Sales_item total;
+
+	if (std::cin >> total) {
+		Sales_item trans;
+		while (std::cin >> trans) {
+			if (total.isbn() == trans.isbn()) {
+				total += trans;
+			}
+			else {
+				std::cout << total << std::endl;
+				total = trans; 
+			}
+		}
+		std::cout << total << std::endl;
+	}
+	else {
+		std::cerr << "No data?!" << std::endl;
+		return -1;
+	}
+	
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

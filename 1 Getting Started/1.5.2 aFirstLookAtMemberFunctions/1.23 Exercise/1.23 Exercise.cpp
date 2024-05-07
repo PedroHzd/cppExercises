@@ -1,11 +1,39 @@
 // 1.23 Exercise.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
+/*
+* I will combine exercise 1.23 and 1.24 in this program.
+* 1.23 - Write a program that reads several transactions and counts how many transaction occur for each ISBN.
+* 1.24 - Test the previous program by giving multiple transactions representing multiple ISBNs.
+*        The records for each ISBN should be grouped together. 
+* 
+* 
+*/
 
 #include <iostream>
+#include "Sales_item.h"
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+	Sales_item firstBook, secondBook;
+	int count = 0;
+
+	std::cout << "Enter the ISBN, numbers of sales, and sales price" << std::endl;
+
+	if (std::cin >> firstBook) {
+		while (std::cin >> secondBook) {
+			if (firstBook.isbn() == secondBook.isbn()) {
+				++count;
+				firstBook = secondBook;
+			}
+			else {
+				std::coutn << "The book with ISBN of " << firstBook.isbn() << " has been entered "
+					<< count << " times.\n" << std::endl;
+				count = 0;
+				firstBook = secondBook;
+			}
+		}
+
+	}
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
